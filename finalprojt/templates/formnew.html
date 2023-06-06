@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<script src="{% static 'myfirst.js' %}"></script>
+<body>
+<form method="POST" id=form1 enctype="multipart/form-data" action="">
+    {% csrf_token %}
+    <h1 style="text-align:center;">CONTACT FORM</h1>
+    {{form.as_p}}
+    <label for="Branches">Branches:</label>
+    <select name="Branches" id="Branches">
+        <option value="calicut">Calicut</option>
+        <option value="Cochin">Cochin</option>
+        <option value="Kollam">Kollam</option>
+        <option value="Kottayam">Kottayam</option>
+        <option value="Malappuram">Malappuram</option>
+        <option value="Palakkad">Palakkad</option>
+</select>
+  <br><br>
+   <label for= "Subbranch">Subbranch:</label>
+    <select name="Subbranch" id="Subbranch">
+        <option value="Vadakara">Vadakara</option>
+        <option value="Payyoli">Payyoli</option>
+        <option value="Meechanda">Meechanda</option>
+         <option value="Kallor">Vadakara</option>
+        <option value="Kadavanthara">Kadavanthara</option>
+        <option value="Fort Kochi">Fort Kochi</option>
+        <option value="Manjeri">Manjeri</option>
+        <option value="Tirur">Tirur</option>
+        <option value="Tanur">Tanur</option>
+        <option value="Pattambi">Manjeri</option>
+        <option value="Chittor">Tirur</option>
+        <option value="Koppam">Tanur</option>
+    </select>
+<br><br>
+    <button type=”submit” class=”btn btn-primary”>Create form</button>
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2><a href="/">HOME</a>
+{% endfor %}
+</body>
+</html>

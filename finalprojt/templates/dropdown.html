@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+  <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" >CONFIRM</button>
+            </form>
+        </div>
+    <label for="district">Branches:</label>
+    <select name="district" id="district" class="form-control">
+            <option >--Select district--</option>
+            {% for item in  district  %}
+            <option value="{{item.id}}">{{ item.dist}}</option>
+            {% endfor %}
+    </select>
+     <br><br>
+   <label for= "Subbranch">Subbranch:</label>
+        <select name="subbranch" id="subbranch" class="form-control">
+            <option value="0">--Select Subbranch--</option>
+            {% for item in brcontext  %}
+            <option value="{{item.dist_id }}">{{item.branches}}</option>
+            {% endfor %}
+        </select>
+    <br><br>
+    <button type=”submit” class=”btn btn-primary”>Create form</button>
+</form>
+
+
+<script>
+$(document).ready(function(){
+ var district = $("#district");
+ var subbranch = $("#subbranch");
+ var $options = subbranch.find('option');
+ district.on('change',function(){
+    subbranch.html($options.filter('[value="'+ this.value  +'"]'));
+ }).trigger('change');
+
+});
+</script>
+</body>
+</html>
