@@ -86,10 +86,7 @@ def getdata(request):
 
 
 
-def registerform(request):
-    if request.method == 'POST':
-       messages.info(request,"Application Accepted")
-    return render(request,"check.html")
+
 
 
 
