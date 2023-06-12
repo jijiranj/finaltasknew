@@ -78,23 +78,9 @@ def new(request):
 def getdata(request):
     district = District.objects.all()
     brcontext = contactdetails.objects.all()
+    if request.method == 'POST':
+       messages.info(request, "Application  Accepted")
     return render(request,'check.html', {'district': district,'brcontext': brcontext})
-
-
-
-def regform(request):
-   if request.method == "POST":
-      name = request.POST['nam']
-      dist = request.POST['dist']
-      user = auth.authenticate(name=name,dist=dist)
-      messages.info(request,"Application Accepted")
-   else:
-         messages.info(request, "Application  Accepted")
-   return render(request,"check.html")
-
-
-
-
 
 
 
