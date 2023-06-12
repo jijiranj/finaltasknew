@@ -9,5 +9,4 @@ urlpatterns = [path('',views.demo,name='demo'),
                path('logout', views.logout, name='logout'),
                path('new', views.new, name='new'),
                path('getdata/',views.getdata,name="getdata"),
-               path('regform',views.regform,name="regform"),
                ]
